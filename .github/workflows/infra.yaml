@@ -88,6 +88,7 @@ jobs:
       - name: Run playbook
         env:
           SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+          DO_API_TOKEN: ${{ secrets.DIGITALOCEAN_TOKEN }}
         working-directory: ansible
         run: | 
           echo "$SSH_PRIVATE_KEY" > ./private.key
