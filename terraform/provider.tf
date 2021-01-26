@@ -1,15 +1,15 @@
 terraform {
-    backend "remote" {
+  backend "remote" {
     organization = "DevStand"
 
     workspaces {
       name = "iac-demo"
     }
   }
-  
+
   required_providers {
     digitalocean = {
-      source = "digitalocean/digitalocean"
+      source  = "digitalocean/digitalocean"
       version = "1.22.2"
     }
   }
