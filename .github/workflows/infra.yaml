@@ -69,3 +69,22 @@ jobs:
         if: github.ref == 'refs/heads/master' && github.event_name == 'push'
         working-directory: terraform
         run: terraform apply -auto-approve
+
+  ansible:
+    name: "Terraform"
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Set Up Python 3
+        uses: actions/setup-python@v2
+        with:
+          python-version: '3.x'
+
+      - name: Install ansible
+        run: pip3 install ansible
+        
+      - name: Check version
+        run: ansible --version
+
