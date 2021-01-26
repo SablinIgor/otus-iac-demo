@@ -1,4 +1,4 @@
-resource "digitalocean_droplet" "www" {
+resource "digitalocean_droplet" "web" {
   count              = 2
   image              = "ubuntu-18-04-x64"
   name               = "www-${count.index}"
