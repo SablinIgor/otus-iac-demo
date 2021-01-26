@@ -83,7 +83,7 @@ jobs:
           python-version: '3.x'
 
       - name: Install ansible
-        run: pip3 install ansible
+        run: pip3 install ansible requests
         
       - name: Run playbook
         env:
