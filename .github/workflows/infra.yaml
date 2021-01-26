@@ -71,7 +71,7 @@ jobs:
         run: terraform apply -auto-approve
 
   ansible:
-    name: "Terraform"
+    name: "Ansible"
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -85,6 +85,12 @@ jobs:
       - name: Install ansible
         run: pip3 install ansible
         
-      - name: Check version
-        run: ansible --version
+      - name: Run playbook
+        env:
+          SSH_PRIVATE_KEY: ${{ secrets.SSH_PRIVATE_KEY }}
+        working-directory: ansible
+        run: | 
+          echo "$SSH_PRIVATE_KEY" > ./private.key
+          sudo chmod 600 ./private.key
+          ansible-playbook provision.yaml
 
