@@ -15,10 +15,10 @@ terraform {
   }
 }
 
-variable "digitalocean_token" {}
+variable "DIGITALOCEAN_TOKEN" {}
 
 provider "digitalocean" {
-  token = var.digitalocean_token
+  token = "${var.DIGITALOCEAN_TOKEN}
 }
 
 data "digitalocean_ssh_key" "terraform" {
