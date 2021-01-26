@@ -15,5 +15,5 @@ resource "digitalocean_loadbalancer" "www-loadbalancer" {
     protocol = "tcp"
   }
 
-  droplet_ids = [digitalocean_droplet.www-1.id, digitalocean_droplet.www-2.id]
+  droplet_ids = digitalocean_droplet.web.*.id
 }
